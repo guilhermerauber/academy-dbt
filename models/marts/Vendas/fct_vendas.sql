@@ -33,14 +33,10 @@ with
             , pedidos_detalhes.id_pedido_detalhes
             , pedidos_detalhes.id_pedido
             , pedidos_detalhes.id_produto
-            , pedidos_detalhes.quantidade
-            , pedidos_detalhes.preco_unitario
-            , pedidos_detalhes.data_do_pedido
-            , pedidos_detalhes.status
             , pedidos_detalhes.id_do_cliente
             , pedidos_detalhes.id_territorio
             , pedidos_detalhes.id_cartao_de_credito
-            , pedidos_detalhes.subtotal
+            , pedidos_detalhes.data_do_pedido
             , pedidos_detalhes.endereco_de_envio
             , pedidos_detalhes.endereco_de_cobranca
 
@@ -61,7 +57,12 @@ with
             --, motivo_da_venda.id_pedido
 
             --, produtos.id_produto
-            , produtos.nome_produto            
+            , produtos.nome_produto    
+
+            , pedidos_detalhes.quantidade
+            , pedidos_detalhes.preco_unitario
+            , pedidos_detalhes.subtotal 
+            , pedidos_detalhes.status       
 
         from pedidos_detalhes
         left join clientes on pedidos_detalhes.endereco_de_envio = clientes.id_endereco
@@ -72,7 +73,7 @@ with
 
     , transformacoes as (
         select
-            id_pedido_detalhes || " " || id_pedido as sk_venda
+            id_pedido_detalhes || " " || id_pedido as sk_venda 
             , * 
         from joined
     )
