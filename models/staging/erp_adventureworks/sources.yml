@@ -1,0 +1,45 @@
+version: 2
+
+sources:
+  - name: erp
+    description: Banco de dados do SAP da Adventures Works.
+    schema: sap_adw
+    tables:
+      - name: salesorderdetail
+        description: Detalhes dos pedidos feitas na adventure works.
+        columns:
+          - name: salesorderdetailid
+            description: Chave primária da tabela de detalhe dos pedidos.
+            tests:
+              - unique
+              - not_null
+      
+      - name: salesorderheader
+        description: Pedidos feitos na adventure works.
+      
+      - name: creditcard
+        description: Tabela com os cartões de crédito utilizados na AW.
+
+      - name: businessentityaddress
+        description: Tabela que relaciona a chave businessentityid com o addressid.
+
+      - name: address
+        description: Tabela com detalhes dos endereços dos clientes da AW.
+
+      - name: person
+        description: Tabela com informações dos clientes da AW.
+
+      - name: stateprovince
+        description: Tabela com os dados dos estados.
+
+      - name: countryregion
+        description: Tabela com os dados dos  países.
+
+      - name: salesorderheadersalesreason
+        description: Tabela que relaciona a chave salesreasonid com salesorderid.
+
+      - name: salesreason
+        description: Tabela com os motivos das vendas.
+      
+      - name: product
+        description: Tabela produtos comercializados pela AW.
