@@ -35,9 +35,9 @@ models:
   erp_adventureworks:
     staging:
       erp_adventureworks:
-        +materialized: view  
-  
-    marts:
+        +materialized: view
+
+    Marts:
       +materialized: table
 
 

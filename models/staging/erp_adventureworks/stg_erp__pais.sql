@@ -1,7 +1,7 @@
 with
     source_countryregion as (
         select
-            cast(countryregioncode as int) as codigo_pais				
+            cast(countryregioncode as string) as codigo_pais				
             , cast(name as string) as nome_pais			
         from {{ source('erp', 'countryregion') }}
     )
